@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4239667568440294593}
   m_Layer: 0
   m_Name: pick_up
-  m_TagString: been
+  m_TagString: bean
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
