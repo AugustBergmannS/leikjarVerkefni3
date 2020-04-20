@@ -4,36 +4,39 @@ using UnityEngine.UI;
 
 public class player_collition : MonoBehaviour
 {
-    public int been = 0;
+    public int bean = 0;
     float current = 0f;
     public Text countText;
-    int nrOfbeens = 0;
+    int nrOfbeans = 0;
     public GameObject DoorTrigger;
-    //public
-    
-
+    public AudioSource sounds;
+    public AudioClip oof;
+    public AudioClip beansa;
 
     void Start()
     {
-        GameObject[] beens;
-        beens = GameObject.FindGameObjectsWithTag("been");
-        nrOfbeens = beens.Length;
+        GameObject[] beans;
+        beans = GameObject.FindGameObjectsWithTag("bean");
+        nrOfbeans = beans.Length;
     }
 
     void OnCollisionEnter(Collision collisionInfo)
     {
         if (collisionInfo.collider.tag == "obstical") 
         {
+            sounds.PlayOneShot(oof,1);
             if (current <= 0f)
             {
-                been -= 1;
-                nrOfbeens -= 1;
+                bean -= 1;
+                nrOfbeans -= 1;
+                countText.text = "" + bean.ToString();
             }
             current = 2f;
             
-            if (been < 0)
+            if (bean < 0)
             {
-                PlayerPrefs.SetInt("howManyBeens", been);
+                bean = 0;
+                PlayerPrefs.SetInt("howManyBeans", bean);
                 FindObjectOfType<GameManager>().loadnxtlvl();
             }
             
@@ -42,10 +45,11 @@ public class player_collition : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("been"))
+        if (other.gameObject.CompareTag("bean"))
         {
+            sounds.PlayOneShot(beansa, 1);
             other.gameObject.SetActive(false);
-            been = been + 1;
+            bean = bean + 1;
             SetCountText();
         }
         if (other.gameObject.CompareTag("pressure plate"))
@@ -56,11 +60,11 @@ public class player_collition : MonoBehaviour
     }
     void SetCountText()
     {
-        countText.text = "" + been.ToString();
+        countText.text = "" + bean.ToString();
 
-        if (been >= nrOfbeens)
+        if (bean >= nrOfbeans)
         {
-            PlayerPrefs.SetInt("howManyBeens",been);
+            PlayerPrefs.SetInt("howManyBeans", bean);
             FindObjectOfType<GameManager>().loadnxtlvl();
         }
     }

@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class creadits : MonoBehaviour
 {
-    public Text beentxt;
-    int been = PlayerPrefs.GetInt("howManyBeens");
+    public Text beantxt;
+    int bean = PlayerPrefs.GetInt("howManyBeans");
 
 
     void start()
@@ -14,7 +14,7 @@ public class creadits : MonoBehaviour
     }
     void SetCountText()
     {
-        beentxt.text = "You got " + been.ToString() +" Beens!";
+        beantxt.text = "You got " + bean.ToString() + " Beans!";
     }
     public void restart()
     {

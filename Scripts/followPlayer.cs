@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class followPlayer : MonoBehaviour
 {
     public Transform Player;
-    int MoveSpeed = 10;
+    public int MoveSpeed = 10;
     float MinDist = 0.6f;
 
 
