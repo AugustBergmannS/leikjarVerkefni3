@@ -3,4 +3,4 @@ Vídíóið
 
 VVVVVV
 
-[![Watch the video](emergency_broadcast_system.jpg)](https://www.youtube.com/watch?v=MntindLNTao)
+[![Watch the video](emergency_broadcast_system.jpg)](https://youtu.be/xr7BvkDRzK8)
